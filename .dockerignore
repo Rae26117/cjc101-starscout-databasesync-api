@@ -1,0 +1,22 @@
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+
+# Git repo
+.git/
+.gitignore
+
+# Logs
+*.log
+
+# Local secrets
+.env
+
+# Docker files
+Dockerfile
+.dockerignore
