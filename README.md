@@ -11,7 +11,7 @@ A modular FastAPI app to export product data from RDS MySQL and sync it as Markd
 ## 🧱 Project Structure
 
 ```
-fastapi_dify_sync/
+cjc101-starscout-databasesync-api/
 ├── main.py                # FastAPI app entry point
 ├── sync_products.py       # Sync logic and API route
 ├── .env.sample            # Example env file
