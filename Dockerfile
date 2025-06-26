@@ -1,21 +1,13 @@
-# Use official Python image
 FROM python:3.11-slim
 
-# Set work directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y gcc libmariadb-dev curl
+COPY . /app
 
-# Copy project files
-COPY . .
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    rm -rf ~/.cache && \
+    find . -type d -name "__pycache__" -exec rm -r {} + && \
+    find . -type f -name "*.pyc" -delete
 
-# Install Python dependencies
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Set environment variables (optional)
-ENV PYTHONUNBUFFERED=1
-
-# Start the FastAPI app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
